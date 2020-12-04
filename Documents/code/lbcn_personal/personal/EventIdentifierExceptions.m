@@ -375,7 +375,11 @@ elseif strcmp(sbj_name,       'S17_118_TW') && strcmp(project_name, 'GradCPT') &
      n_initpulse_onset = 1; n_initpulse_offset = 1;   
  elseif strcmp(sbj_name,       'S17_116_AA') && strcmp(project_name, 'GradCPT') 
      n_initpulse_onset = 1; n_initpulse_offset = 1;   
-    
+ elseif strcmp(sbj_name, 'C19_60') && strcmp(project_name, 'GradCPT') 
+     n_initpulse_onset = 1; n_initpulse_offset = 1;    
+ elseif strcmp(sbj_name, 'S19_137_AF') && strcmp(project_name, 'GradCPT') 
+     n_initpulse_onset = 1; n_initpulse_offset = 1;         
+ 
 %MFA
 elseif strcmp(sbj_name,  'S13_57_TVD')&& strcmp(bn, 'TVD_16')
     n_initpulse_onset = 12; n_initpulse_offset = 12;

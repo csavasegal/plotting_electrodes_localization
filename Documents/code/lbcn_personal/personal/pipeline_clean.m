@@ -77,6 +77,7 @@ empty_chan = [];
 
 if strcmp(data_format, 'edf')
     SaveDataNihonKohden(sbj_name, project_name, block_names, dirs, ref_chan, epi_chan, empty_chan) %
+   % SaveDataNihonKohden_Chao(sbj_name, project_name, block_names, dirs, ref_chan, epi_chan, empty_chan) %
 elseif strcmp(data_format, 'TDT')
     SaveDataDecimate(sbj_name, project_name, block_names, fs_iEEG, fs_Pdio, dirs, ref_chan, epi_chan, empty_chan) %% DZa 3051.76
 else
@@ -123,6 +124,7 @@ switch project_name
     case 'Scrambled'
         OrganizeTrialInfoScrambled(sbj_name, project_name, block_names, dirs)
         OrganizeTrialInfoRace_active(sbj_name, project_name, block_names, dirs,center)
+    case 'race_encoding_simple'
         OrganizeTrialInfoRace_simple(sbj_name, project_name, block_names, dirs,center)
         OrganizeTrialInfoRace_Faces(sbj_name, project_name, block_names, dirs,center)
     case 'GradCPT'
@@ -142,7 +144,7 @@ if strcmp(project_name, 'Number_comparison')
 elseif strcmp(project_name, 'EglyDriver')
     EventIdentifier_EglyDriver(sbj_name, project_name, block_names, dirs, 1) % new ones, photo = 1; old ones, photo = 2; china, photo = varies, depends on the clinician, normally 9.
 else
-    EventIdentifier(sbj_name, project_name, block_names, dirs,10) % new ones, photo = 1; old ones, photo = 2; china, photo = varies, depends on the clinician, normally 9.
+    EventIdentifier(sbj_name, project_name, block_names, dirs,1) % new ones, photo = 1; old ones, photo = 2; china, photo = varies, depends on the clinician, normally 9.
     close all
 end
 
@@ -246,6 +248,23 @@ plot_params.noise_method = 'trials'; %'trials','timepts','none'
 plot_params.noise_fields_trials = {'bad_epochs_HFO','bad_epochs_raw_HFspike'};
 %plot_params.noise_fields_timepts = {'bad_epochs_HFO','bad_epochs_raw_HFspike'};
 PlotTrialAvgAll(sbj_name,project_name,block_names,dirs,[],'HFB','stim','condNames', [], plot_params,'Band') % condNames
+PlotTrialAvgAll(sbj_name,project_name,block_names,dirs,[],'HFB','stim','condNames2', [], plot_params,'Band') % condNames
+
+cdcol.asian_red  = [0.9647 0.1647 0];
+cdcol.black_blue = [0.3020 0.3922 0.5529];
+cdcol.white_blue =  [0     0.5800 0.7920];
+cdcol.own_race_red = [0.8200 0      0.1800];
+cdcol.other_race_black = [0      0.1608 0.2353];
+plot_params.col = [cdcol.own_race_red;cdcol.other_race_black]
+plot_params.col = [cdcol.other_race_black; cdcol.own_race_red]
+%for Fig 4 for race project (for Stanford patients)
+%for patient 152
+PlotTrialAvgAll(sbj_name,project_name,block_names,dirs,106,'HFB','stim','condFaces', [], plot_params,'Band') % condNames
+%for patient 118
+PlotTrialAvgAll(sbj_name,project_name,block_names,dirs,72,'HFB','stim','condFaces', [], plot_params,'Band') % condNames
+PlotTrialAvgAll(sbj_name,project_name,block_names,dirs,72,'HFB','stim','condNames', [], plot_params,'Band') % condNames
+
+
 
 %only for gradCPT
 PlotTrialAvgAll(sbj_name,project_name,block_names,dirs,[],'HFB','stim','respType', [], plot_params,'Band') % condNames
@@ -1705,12 +1724,12 @@ for i = 1:length(views)
     ctmr_gauss_plot(cmcortex.(hemis{i}),[0 0 0], 0, hemis{i}, views{i})
     alpha(0.5)
     % Only plot on the relevant hemisphere
-    for ii = 1:length(data.MNI_coord)
-        if (strcmp(hemis{i}, 'left') == 1 && data.MNI_coord(ii,1) > 0) || (strcmp(hemis{i}, 'right') == 1 && data.MNI_coord(ii,1) < 0)
-        else
-            plot3(data.MNI_coord(ii,1),data.MNI_coord(ii,2),data.MNI_coord(ii,3), 'o', 'MarkerSize', marker_size, 'MarkerFaceColor', 'k', 'MarkerEdgeColor', 'k');
-        end
-    end
+%     for ii = 1:length(data.MNI_coord)
+%         if (strcmp(hemis{i}, 'left') == 1 && data.MNI_coord(ii,1) > 0) || (strcmp(hemis{i}, 'right') == 1 && data.MNI_coord(ii,1) < 0)
+%         else
+%             plot3(data.MNI_coord(ii,1),data.MNI_coord(ii,2),data.MNI_coord(ii,3), 'o', 'MarkerSize', marker_size, 'MarkerFaceColor', 'k', 'MarkerEdgeColor', 'k');
+%         end
+%     end
 end
 savePNG(gcf, 300, [dir_out 'coverage_MMR.png'])
 

@@ -150,5 +150,9 @@ elseif strcmp(project_name, 'GradCPT') && (strcmp(sbj_name,  'S17_118_TW'))
 elseif strcmp(project_name, 'GradCPT') && (strcmp(sbj_name,  'S17_114_EB'))  && strcmp(bn,'E17-526_0018') 
     all_stim_onset = all_stim_onset(1:end-1);      
 elseif strcmp(project_name, 'GradCPT') && (strcmp(sbj_name,    'S17_116_AA'))  
-    all_stim_onset = all_stim_onset(1:end-1);    
+    all_stim_onset = all_stim_onset(1:end-1); 
+elseif strcmp(project_name, 'GradCPT') && (strcmp(sbj_name,    'C19_60'))  
+    all_stim_onset = all_stim_onset(1:end-1); 
+elseif strcmp(project_name, 'GradCPT') && (strcmp(sbj_name,    'S19_137_AF'))  
+    all_stim_onset = all_stim_onset(1:end-1); 
 end

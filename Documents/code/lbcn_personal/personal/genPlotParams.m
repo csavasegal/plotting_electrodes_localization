@@ -223,7 +223,7 @@ switch task
         plot_params.col = parula(5);
         
     case 'VTCLoc'
-        plot_params.xlim = [-.250 2];
+        plot_params.xlim = [-.250 1];
         plot_params.blc = true;
         plot_params.bl_win = [-0.250 0];
         cols = [231 50 35; 239 158 56; 252 235 78; 206 252 80; 93 190 55; ...

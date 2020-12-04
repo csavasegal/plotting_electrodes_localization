@@ -53,6 +53,13 @@ anat = {'HIPPO A','HIPPO M','HIPPO P'};
 anat_displ = importdata('/Users/clara/Documents/code/lbcn_personal/personal/race_project/anat_abbreviation.txt');
 disp(anat_displ);
 
+load cdcol.mat
+cdcol.asian_red  = [0.9647 0.1647 0];
+cdcol.black_blue = [0.3020 0.3922 0.5529];
+cdcol.white_blue =  [0     0.5800 0.7920];
+cdcol.own_race_red = [0.8200 0      0.1800];
+cdcol.other_race_black = [0      0.1608 0.2353];
+
 
 %% Visit each excel table, add a name column, and concatenate them into a cell
 T = cell(size(sbj_names,1), 1);
@@ -115,8 +122,8 @@ conditions = {'mountains','cities'}; column = 'condNames';
 % else
 % end
 if strcmp(column,'condNames')
-    load cdcol.mat
-    plot_params.col = [cdcol.ultramarine;cdcol.carmine];
+    %plot_params.col = [cdcol.ultramarine;cdcol.carmine];
+    plot_params.col = [cdcol.own_race_red;cdcol.other_race_black];
 else
 end
 
@@ -188,20 +195,24 @@ for ci = 1:length(conditions)
         %plot_data_stac{ci} = plot_data{ci}(:,(find(abs(data.time-plot_params.clust_per_win(1))<0.001):find(abs(data.time-plot_params.clust_per_win(2))<0.001)));%%%%%Chao the time window to do the permutation
         cond_names{ci} = [cond_names{ci},' (',num2str(size(plot_data{ci},1)),' of ',num2str(size(plot_data_all{ci},1)), ' trials)'];
     end
-    if ~strcmp(plot_params.eb,'none')
-        lineprops.style= '-';
-        lineprops.width = plot_params.lw;
-        lineprops.edgestyle = '-';
-        if strcmp(plot_params.eb,'ste')
-            mseb(data_all.time,nanmean(plot_data{ci}),nanstd(plot_data{ci})/sqrt(size(plot_data{ci},1)),lineprops,1);
-            hold on
-        else %'std'
-            mseb(data_all.time,nanmean(plot_data{ci}),nanstd(plot_data{ci}),lineprops,1);
-            hold on
-        end
-    else
-    end
-    h(ci)=plot(data_all.time,nanmean(plot_data{ci}),'LineWidth',plot_params.lw,'Color',plot_params.col(ci,:));
+%     if ~strcmp(plot_params.eb,'none')
+%         lineprops.style= '-';
+%         lineprops.width = plot_params.lw;
+%         lineprops.edgestyle = '-';
+%         if strcmp(plot_params.eb,'ste')
+%             %mseb(data_all.time,nanmean(plot_data{ci}),nanstd(plot_data{ci})/sqrt(size(plot_data{ci},1)),lineprops,1);
+%             mseb(data_all.time,plot_data{ci},nanstd(plot_data{ci})/sqrt(size(plot_data{ci},1)),lineprops,1);
+%             
+%             hold on
+%         else %'std'
+%             mseb(data_all.time,nanmean(plot_data{ci}),nanstd(plot_data{ci}),lineprops,1);
+%             hold on
+%         end
+%     else
+%     end
+    %h(ci)=plot(data_all.time,nanmean(plot_data{ci}),'LineWidth',plot_params.lw,'Color',plot_params.col(ci,:));
+    h(ci)=plot(data_all.time,plot_data{ci},'LineWidth',plot_params.lw,'Color',plot_params.col(ci,:));
+    
     hold on
 end
 xlim(plot_params.xlim)
@@ -224,11 +235,11 @@ ylim(y_lim)
 box on 
 leg = legend(h,cond_names,'Location','Northeast', 'AutoUpdate','off');%cond_names has the trial infomation(default), and cond_names2 is about the category
 legend boxoff
-set(leg,'fontsize',plot_params.legendfontsize, 'Interpreter', 'none')
+%set(leg,'fontsize',plot_params.legendfontsize, 'Interpreter', 'none')
 
 sites_num = sum(cellfun(@numel, T3{:,'anat'} ));
 sbj_names_num = size(T3,1);
-title([num2str(sites_num),' sites in ' anat_name ' from ',num2str(sbj_names_num),' Subjects'])
+title([num2str(sites_num),' sites in ' anat_name ' from ',num2str(sbj_names_num),' Subject'])
 
 %cd('/Users/chao/Desktop/Project_in_Stanford/RACE/4_working_data/globe_analysis_figures');%plz adjust accordingly
 

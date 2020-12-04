@@ -174,21 +174,26 @@ switch task
                 BN = {'gradCPT_1','gradCPT_2','gradCPT_3','gradCPT_4','gradCPT_5','gradCPT_6'};
             case   'C18_22'
                 BN = {'S17_022_gradCPT_Block_1_6','S17_022_gradCPT_Block_2_6','S17_022_gradCPT_Block_3_6','S17_022_gradCPT_Block_4_6','S17_022_gradCPT_Block_5_6','S17_022_gradCPT_Block_6_6','S17_022_RACE_Block_2_3'}
+            %case 'C18_23'
+               % BN = {'S17_023_gradCPT_Block_1_6','S17_023_gradCPT_Block_2_6','S17_023_gradCPT_Block_3_6','S17_023_gradCPT_Block_4_6','S17_023_gradCPT_Block_5_6','S17_023_gradCPT_Block_6_6'}
+            
             case    'C18_24'
-                BN = {'C18_024_gradCPT_Block_1_4','C18_024_gradCPT_Block_2_4','C18_024_gradCPT_Block_3_4','C18_024_gradCPT_Block_4_4','C18_024_RACE_Block_2_3'}
+                BN = {'C18_024_gradCPT_Block_1_4','C18_024_gradCPT_Block_2_4','C18_024_gradCPT_Block_3_4','C18_024_gradCPT_Block_4_4','C18_024_RACE_Block_2_3'};
                 
             case 'C18_25'
-                BN = {'C18_025_VgradCPT_Block_1_6','C18_025_VgradCPT_Block_2_6','C18_025_VgradCPT_Block_3_6','C18_025_VgradCPT_Block_5_6'}
+                BN = {'C18_025_VgradCPT_Block_1_6','C18_025_VgradCPT_Block_2_6','C18_025_VgradCPT_Block_3_6','C18_025_VgradCPT_Block_5_6'};
                 
             case 'C18_26'
                 BN = {'gradCPT_1','gradCPT_2','gradCPT_3','gradCPT_4','gradCPT_5','gradCPT_6'};
             case 'C18_31'
                 BN = {'gradCPT_1','gradCPT_2','gradCPT_3','gradCPT_4','gradCPT_5','gradCPT_6'};
             case 'C18_32'
-                BN = {'gradCPT_1','gradCPT_2','gradCPT_3','gradCPT_4'}%,'gradCPT_5'};
+                BN = {'gradCPT_1','gradCPT_2','gradCPT_3','gradCPT_4'};%,'gradCPT_5'};
             case 'C18_33'
                 BN = {'gradCPT_1','gradCPT_2','gradCPT_3','gradCPT_4','gradCPT_5','gradCPT_6'};
             case 'C18_35'
+                BN = {'gradCPT_1','gradCPT_2','gradCPT_3','gradCPT_4','gradCPT_5','gradCPT_6'};
+            case 'C18_38'
                 BN = {'gradCPT_1','gradCPT_2','gradCPT_3','gradCPT_4','gradCPT_5','gradCPT_6'};
             case 'C18_39'
                 BN = {'gradCPT_1','gradCPT_2','gradCPT_3','gradCPT_4','gradCPT_5'};
@@ -214,12 +219,15 @@ switch task
                 BN = {'gradCPT_1','gradCPT_2','gradCPT_3_RACE_2','gradCPT_4','gradCPT_5','gradCPT_6'};
             case 'C19_55'
                 BN = {'gradCPT_1','gradCPT_2','gradCPT_3','gradCPT_4','gradCPT_5','gradCPT_6'};
+            case 'C18_42'
+                BN = {'gradCPT_1','gradCPT_2','gradCPT_3','gradCPT_4','gradCPT_5','gradCPT_6'};
             case 'S17_114_EB'
                 %BN = {'E17-526_0028','E17-526_0018'};
                 BN = {'E17-526_0018'};
             case 'S17_116_AA'
-                BN = {'E17-789_0009','E17-789_0010','E17-789_0019','E17-789_0020','E17-789_0021','E17-789_0026','E17-789_0028'}
-
+                BN = {'E17-789_0009','E17-789_0010','E17-789_0019','E17-789_0020','E17-789_0021','E17-789_0026','E17-789_0028'};
+            case 'S20_152_HT'
+                BN = {'E20-580_0008','E20-580_0030'};
                 
         end
     case 'MMR'
@@ -758,7 +766,9 @@ switch task
             case 'S17_117_MC'
                 BN = {'E17-823_0001','E17-823_0002','E17-823_0003'};
             case 'S17_118_TW'
-                BN = {'E17-910_0002','E17-910_0003','E17-910_0004'};
+                %BN = {'E17-910_0002','E17-910_0003','E17-910_0004'};
+                BN = {'E17-910_0002','E17-910_0003'};
+
             case 'S15_89_JQb'
                 BN = {'E17-152_0004','E17-152_0005','E17-152_0006'};
             case 'S18_124_JR2'
@@ -779,6 +789,64 @@ switch task
                 BN = {'E17-58_0005','E17-58_0006'};
             case  'S19_136_AG'
                 BN = {'E19-320_0001','E19-320_0003'};
+            case 'C18_31'
+               BN =  {'VTC24_1', 'VTC24_2','VTC24_3'};
+            case 'C18_32'
+                BN = {'VTC24_1', 'VTC24_2','VTC24_3'};
+            case 'C18_30'
+                BN = {'VTC24_1', 'VTC24_2','VTC24_3'};
+            case 'C18_27'
+               BN =  {'VTC24_1', 'VTC24_2','VTC24_3'};    
+            case 'C18_35'
+                BN =  {'VTC24_1', 'VTC24_2','VTC24_3'};    
+            case 'C18_37'
+                BN =  {'VTC24_1', 'VTC24_2','VTC24_3'};    
+            case 'C18_38'
+                BN =  {'VTC_1', 'VTC_2','VTC_3'};    
+            case 'C18_49'
+                BN =  {'VTC_1', 'VTC_2','VTC_3'};                    
+             case 'C18_39'
+                BN =  {'VTC_1', 'VTC_2','VTC_3'};  
+            case 'C18_41'
+                BN =  {'VTC_1', 'VTC_2','VTC_3'};      
+            case 'C18_45'
+                BN =  {'VTC_1', 'VTC_2','VTC_3'}; 
+            case 'C18_42'
+                BN =  {'VTC_1', 'VTC_2','VTC_3'}; 
+            case 'C18_47'
+                BN =  {'VTC_1', 'VTC_2','VTC_3'};   
+            case 'C19_50'
+                BN =  {'VTC_1', 'VTC_2','VTC_3'};   
+            case 'C19_43'
+                BN =  {'VTC_1', 'VTC_2','VTC_3'};   
+            case 'C19_45'
+                BN =  {'VTC_1', 'VTC_2','VTC_3'}; 
+            case 'C19_58'
+                BN =  {'VTC_1', 'VTC_2','VTC_3'};   
+            case 'C19_60'
+                BN =  {'VTC_1', 'VTC_2','VTC_3'}; 
+            case 'C18_43'
+                BN =  {'VTC_1', 'VTC_2','VTC_3'};    
+            case 'C18_23'
+                BN = {'S17_023_VTC24_Block_1_3','S17_023_VTC24_Block_2_3','S17_023_VTC24_Block_3_3'};
+            case 'C17_21'
+                BN = {'S17_021_VTC24_Block_1_3','S17_021_VTC24_Block_2_3','S17_021_VTC24_Block_3_3'};
+            case 'C18_22'
+                BN = {'S17_022_VTC24_Block_1_3','S17_022_VTC24_Block_2_3','S17_022_VTC24_Block_3_3'};
+            case 'C18_25'
+                BN = {'C18_025_VTC25_Block_1_3','C18_025_VTC25_Block_2_3','C18_025_VTC25_Block_3_3'};
+            case 'C18_26'
+                BN =  {'VTC24_1', 'VTC24_2','VTC24_3'};
+            case 'C19_55'
+                BN = {'VTC_1','VTC_2','VTC_3'};
+            case 'C18_28'
+                BN =  {'VTC24_1', 'VTC24_2','VTC24_3'};  
+            case 'C18_29'
+                BN =  {'VTC24_1', 'VTC24_2','VTC24_3'}; 
+            case 'C19_62'
+                 BN =  {'VTC_1', 'VTC_2','VTC_3'};
+            case 'S20_152_HT'
+                BN = {'E20-580_0032','E20-580_0033'};
             otherwise
                 BN = [];
         end
@@ -1104,12 +1172,27 @@ switch task
     case 'race_encoding_simple'
         switch sbj
             case 'C17_21'
-                BN = {'S17_021_Race_Block_1_3'}
+                BN = {'S17_021_Race_Block_1_3'};
             case 'C18_29'
-                BN = {'RACE_1'}
-                
+                BN = {'RACE_1'};
+            case 'S19_145_PC'
+                BN = {'E20-194_0036'};
+            case 'C18_37'
+                BN = {'RACE_1'};
+            case 'C18_49'
+                BN = {'RACE_1'};
+            case 'C19_62'
+                BN = {'RACE_1'} ;
         end
-        
+    case 'race_recall'
+        switch sbj
+            case 'C18_37'
+                BN = {'RACE_3'};
+                BN = {'RACE_3'} 
+            case 'C18_29'
+                BN = {'RACE_3'} ;
+            case 'C19_62'
+                BN = {'RACE_3'} ;
     otherwise
         
         BN = nan;
